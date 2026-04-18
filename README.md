@@ -1,3 +1,4 @@
+# # WorkTime-Calc.
 
 <p align="center">
   <img src="assets/images/logo.png"

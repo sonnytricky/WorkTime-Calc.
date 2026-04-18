@@ -1,0 +1,42 @@
+
+body {
+  font-family: sans-serif;
+  display: flex;
+  /* justify-content: center;
+  align-items: top; */
+  height: 100vh;
+}
+
+.btn {
+  padding: 10px;
+  background: black;
+  border-radius: 15px;
+
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ccc;
+}
+/* Zeitrad*/
+
+
+.picker {
+  display: flex;
+  gap: 20px;
+}
+
+.wheel {
+  height: 150px;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 80px;
+  text-align: center;
+}
+
+.item {
+  padding: 10px;
+  font-size: 20px;
+  scroll-snap-align: center;
+}

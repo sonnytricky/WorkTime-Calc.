@@ -1,0 +1,1 @@
+soll wie ein Handy-app funktionieren, alles in einer Karte, nur Darkmode, Farben wie im LinuxChooser https://github.com/TheMorpheus407/LinuxChooser/blob/master/src/index.css

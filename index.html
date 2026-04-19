@@ -17,6 +17,7 @@
   <!-- <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css"> -->
+
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -32,15 +33,36 @@
     <div class="wheel" id="hours"></div> 
     <div class="wheel" id="minutes"></div> 
   </div> -->
-  <div class="feld">
-    <label>Name:</label>
-    <input type="text" placeholder="Soll Zeit gesammt">
-    <input type="text" placeholder="VM Pause">
-    <input type="text" placeholder="NM Pause">
+
+  <div class="cardGross">
+    <div class="cardKlein">
+      <label>Soll Zeit gesammt:</label>
+      <input id="sollZeitGesamt" type="text" placeholder="Soll Zeit gesammt">
+    </div>
+
+    <div class="cardKlein">
+      <label>VM Pause:</label>
+      <input id="vmPauseStart" type="text" placeholder="VM Pause Von">
+      <input id="vmPauseEnde" type="text" placeholder="VM Pause Bis">
+    </div>
+
+    <div class="cardKlein">
+      <label>Mittagspause:</label>
+      <input id="mittagsPauseStart" type="text" placeholder="Mittagspause Von">
+      <input id="mittagsPauseEnde" type="text" placeholder="Mittagspause Bis">
+    </div>
+
+    <div class="cardKlein">
+      <label>NM Pause:</label>
+      <input id="nmPauseStart" type="text" placeholder="NM Pause Von">
+      <input id="nmPauseEnde" type="text" placeholder="NM Pause Bis">
+    </div>
   </div>
-  <footer>
+
+  <div>
     <button class="btn">Berechnen</button>
-  </footer>
+  </div>
+
   <script src="worktimecalc.js"></script>
 
 </body>

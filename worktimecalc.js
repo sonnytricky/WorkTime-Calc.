@@ -1,6 +1,3 @@
-// TODO
-// - [ ] Die Zeiten brauchen einen standartwert der bei null liegen soll
-
 // ======================
 // Zeiteingaben
 // ======================
@@ -22,53 +19,67 @@ const mittagsPauseEnde = document.getElementById("mittagsPauseEnde");
 const nmPauseStart = document.getElementById("nmPauseStart");
 const nmPauseEnde = document.getElementById("nmPauseEnde");
 
+// Button
+const vmPauseBerechnung = document.getElementById("vmPauseBerechnung");
+const mittagsPauseBerechnung = document.getElementById("mittagsPauseBerechnung");
+const nmPauseBerechnung = document.getElementById("nmPauseBerechnung");
+const arbeitstagBerechnung = document.getElementById("arbeitstagBerechnung");
+
+
 let arbeitstagEnde;
+
+// Hilfsfunktion
+function timeToMinutes(input) {
+  const [h, m] = input.value.split(":").map(Number);
+  return h * 60 + m;
+}
 
 // ======================
 // Berechnung
 // ======================
-// vmPause
-const vmPausenStartStundenInMinuten = Number(vmPauseStart.split (":") [0]); // Zeit in Minuten umrechnen
-const vmPausenStartMinuten = Number(vmPauseStart.split (":") [1]); // Minuten und Stunden zusammenzählen
-const vmPauseStartInMinuten = ((vmPausenStartStundenInMinuten * 60) + vmPausenStartMinuten);
+function berechnungVmPause() {
+  const start = timeToMinutes(vmPauseStart);
+  const ende = timeToMinutes(vmPauseEnde);
 
-const vmPausenEndeStundenInMinuten = Number(vmPauseEnde.split (":") [0]); // Zeit in Minuten umrechnen
-const vmPausenEndeMinuten = Number(vmPauseEnde.split (":") [1]); // Minuten und Stunden zusammenzählen
-const vmPauseEndeInMinuten = ((vmPausenEndeStundenInMinuten * 60) + vmPausenEndeMinuten);
+  const gesamt = ende - start;
+  console.log("VM:", gesamt);
 
-// Pause in Minuten Berechnen
-const vmPauseGesamt = (vmPauseEndeInMinuten - vmPauseStartInMinuten);
-console.log (vmPauseGesamt);
+  return gesamt;
+}
 
+function berechneMittagsPause() {
+  const start = timeToMinutes(mittagsPauseStart);
+  const ende = timeToMinutes(mittagsPauseEnde);
 
-// mittagsPause
-const mittagsPauseStartStundenInMinuten = Number(mittagsPauseStart.split (":") [0]); // Zeit in Minuten umrechnen
-const mittagsPauseStartMinuten = Number(mittagsPauseStart.split (":") [1]); // Minuten und Stunden zusammenzählen
-const mittagsPauseStartInMinuten = ((mittagsPauseStartStundenInMinuten * 60) + mittagsPauseStartMinuten);
+  const gesamt = ende - start;
+  console.log("Mittag:", gesamt);
 
-const mittagsPauseEndeStundenInMinuten = Number(vmPauseEnde.split (":") [0]); // Zeit in Minuten umrechnen
-const mittagsPauseEndeMinuten = Number(mittagsPauseEnde.split (":") [1]); // Minuten und Stunden zusammenzählen
-const mittagsPauseEndeInMinuten = ((mittagsPauseEndeStundenInMinuten * 60) + mittagsPauseEndeMinuten);
+  return gesamt;
+}
 
-// Pause in Minuten Berechnen
-const mittagsPauseGesamt = (mittagsPauseEndeInMinuten - mittagsPauseStartInMinuten);
-console.log (mittagsPauseGesamt);
+function berechneNmPause() {
+  const start = timeToMinutes(nmPauseStart);
+  const ende = timeToMinutes(nmPauseEnde);
 
+  const gesamt = ende - start;
+  console.log("NM:", gesamt);
 
-// nmPause
-const nmPausenStartStundenInMinuten = Number(nmPauseStart.split (":") [0]); // Zeit in Minuten umrechnen
-const nmPausenStartMinuten = Number(nmPauseStart.split (":") [1]); // Minuten und Stunden zusammenzählen
-const nmPauseStartInMinuten = ((nmPausenStartStundenInMinuten * 60) + nmPausenStartMinuten);
-
-const nmPausenEndeStundenInMinuten = Number(nmPauseEnde.split (":") [0]); // Zeit in Minuten umrechnen
-const nmPausenEndeMinuten = Number(nmPauseEnde.split (":") [1]); // Minuten und Stunden zusammenzählen
-const nmPauseEndeInMinuten = ((nmPausenEndeStundenInMinuten * 60) + nmPausenEndeMinuten);
-
-// Pause in Minuten Berechnen
-const nmPauseGesamt = (nmPauseEndeInMinuten - nmPauseStartInMinuten);
-console.log (nmPauseGesamt);
+  return gesamt;
+}
 
 
+vmPauseBerechnung.addEventListener("click", berechnungVmPause);
+mittagsPauseBerechnung.addEventListener("click", berechneMittagsPause);
+nmPauseBerechnung.addEventListener("click", berechneNmPause);
+
+// GesamtBerechnung
+arbeitstagBerechnung.addEventListener("click", function () {
+  const vm = berechnungVmPause();
+  const mittag = berechneMittagsPause();
+  const nm = berechneNmPause();
+
+  console.log("GESAMT:", vm + mittag + nm);
+});
 
 
 

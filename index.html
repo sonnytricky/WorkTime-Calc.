@@ -22,46 +22,41 @@
 
 </head>
 <body>
-  <header>
 
-  </header>
-  <div>
+  <div class="app", >
+    <div class="main-card">
+
+
+    <h2>Arbeitszeit</h2>
+
+    <div class="card">
+      <h3>Vormittagspause</h3>
+      <input type="time" id="vmPauseStart">
+      <input type="time" id="vmPauseEnde">
+      <p>Dauer: <span id="vmErgebnis">0</span> min</p>
+      <button class="btn">Berechnen</button>
+    </div>
+
+    <div class="card">
+      <h3>Mittagspause</h3>
+      <input type="time" id="mittagsPauseStart">
+      <input type="time" id="mittagsPauseEnde">
+    </div>
+
+    <div class="card">
+      <h3>Nachmittagspause</h3>
+      <input type="time" id="nmPauseStart">
+      <input type="time" id="nmPauseEnde">
+    </div>
+
+    <div>
+      <span>Dein Tag endet um: <p id="arbeitstagBerechnung"></p></span>
+      <button class="btn">Berechnen</button>
+    </div>
 
   </div>
+</div>
 
-  <!-- <div class="picker"> 
-    <div class="wheel" id="hours"></div> 
-    <div class="wheel" id="minutes"></div> 
-  </div> -->
-
-  <div class="cardGross">
-    <div class="cardKlein">
-      <label>Soll Zeit gesammt:</label>
-      <input id="sollZeitGesamt" type="text" placeholder="Soll Zeit gesammt">
-    </div>
-
-    <div class="cardKlein">
-      <label>VM Pause:</label>
-      <input id="vmPauseStart" type="text" placeholder="VM Pause Von">
-      <input id="vmPauseEnde" type="text" placeholder="VM Pause Bis">
-    </div>
-
-    <div class="cardKlein">
-      <label>Mittagspause:</label>
-      <input id="mittagsPauseStart" type="text" placeholder="Mittagspause Von">
-      <input id="mittagsPauseEnde" type="text" placeholder="Mittagspause Bis">
-    </div>
-
-    <div class="cardKlein">
-      <label>NM Pause:</label>
-      <input id="nmPauseStart" type="text" placeholder="NM Pause Von">
-      <input id="nmPauseEnde" type="text" placeholder="NM Pause Bis">
-    </div>
-  </div>
-
-  <div>
-    <button class="btn">Berechnen</button>
-  </div>
 
   <script src="worktimecalc.js"></script>
 

@@ -131,4 +131,4 @@ function render() {
 // ======================
 // Button
 // ======================
-document.querySelector("feierabendBtn").addEventListener("click", berechnungFeierabend);
+document.querySelector("feierabendBtn").addEventListener("click", berechneFeierabend);

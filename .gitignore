@@ -46,7 +46,7 @@
 !/Test-Berechnungen/**
 !/.gitattributes
 !/.gitignore
-!/.eslintrc.json
+!/eslint.config.js
 !/index.html
 !/LICENSE
 !/package-lock.json

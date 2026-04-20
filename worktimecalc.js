@@ -80,9 +80,9 @@ function berechnungMittagsPause() {
   if (!mittagsPauseStart.value || !mittagsPauseEnde.value) {
     state.mittag = 0;
   } else {
-  const start = timeToMinutes(mittagsPauseStart);
-  const ende = timeToMinutes(mittagsPauseEnde);
-  state.mittag = Math.max(0, ende - start);
+    const start = timeToMinutes(mittagsPauseStart);
+    const ende = timeToMinutes(mittagsPauseEnde);
+    state.mittag = Math.max(0, ende - start);
   }
 
   render();

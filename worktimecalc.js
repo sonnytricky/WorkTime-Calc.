@@ -8,9 +8,6 @@ const sollZeitGesamt = document.getElementById("sollZeitGesamt");
 const vmPauseStart = document.getElementById("vmPauseStart");
 const vmPauseEnde = document.getElementById("vmPauseEnde");
 
-// const vmPauseStart = "09:30";
-// const vmPauseEnde = "10:00";
-
 // Mittagspause
 const mittagsPauseStart = document.getElementById("mittagsPauseStart");
 const mittagsPauseEnde = document.getElementById("mittagsPauseEnde");
@@ -19,14 +16,19 @@ const mittagsPauseEnde = document.getElementById("mittagsPauseEnde");
 const nmPauseStart = document.getElementById("nmPauseStart");
 const nmPauseEnde = document.getElementById("nmPauseEnde");
 
-// Button
-const vmPauseBerechnung = document.getElementById("vmPauseBerechnung");
-const mittagsPauseBerechnung = document.getElementById("mittagsPauseBerechnung");
-const nmPauseBerechnung = document.getElementById("nmPauseBerechnung");
-const arbeitstagBerechnung = document.getElementById("arbeitstagBerechnung");
-
-
 let arbeitstagEnde;
+
+// Eventlistener
+vmPauseStart.addEventListener("input", berechnungVmPause);
+vmPauseEnde.addEventListener("input", berechnungVmPause);
+mittagsPauseStart.addEventListener("input", berechnungMittagsPause);
+mittagsPauseEnde.addEventListener("input", berechnungMittagsPause);
+nmPauseStart.addEventListener("input", berechnungNmPause);
+nmPauseEnde.addEventListener("input", berechnungNmPause);
+
+// ======================
+// Berechnung
+// ======================
 
 // Hilfsfunktion
 function timeToMinutes(input) {
@@ -34,67 +36,57 @@ function timeToMinutes(input) {
   return h * 60 + m;
 }
 
-// ======================
-// Berechnung
-// ======================
+// VM Pause
 function berechnungVmPause() {
+  // Wenn eins leer ist → nichts anzeigen, ohne den if abgleich würde bei nur einer Zahl NaN kommen
+  if (!vmPauseStart.value || !vmPauseEnde.value) {
+    document.getElementById("vmErgebnis").textContent = "0";
+    return;
+  }
+
   const start = timeToMinutes(vmPauseStart);
   const ende = timeToMinutes(vmPauseEnde);
 
-  const gesamt = ende - start;
-  console.log("VM:", gesamt);
+  const vmGesamt = ende - start;
 
-  return gesamt;
+  document.getElementById("vmErgebnis").textContent = vmGesamt;
 }
 
-function berechneMittagsPause() {
+// mittag
+function berechnungMittagsPause() {
+  // Wenn eins leer ist → nichts anzeigen, ohne den if abgleich würde bei nur einer Zahl NaN kommen
+  if (!mittagsPauseStart.value || !mittagsPauseEnde.value) {
+    document.getElementById("mittagsErgebnis").textContent = "0";
+    return;
+  }
+
   const start = timeToMinutes(mittagsPauseStart);
   const ende = timeToMinutes(mittagsPauseEnde);
 
-  const gesamt = ende - start;
-  console.log("Mittag:", gesamt);
+  const mittagsGesamt = ende - start;
 
-  return gesamt;
+  document.getElementById("mittagsErgebnis").textContent = mittagsGesamt;
 }
 
-function berechneNmPause() {
+// NM Pause
+function berechnungNmPause() {
+  // Wenn eins leer ist → nichts anzeigen, ohne den if abgleich würde bei nur einer Zahl NaN kommen
+  if (!nmPauseStart.value || !nmPauseEnde.value) {
+    document.getElementById("nmErgebnis").textContent = "0";
+    return;
+  }
+
   const start = timeToMinutes(nmPauseStart);
   const ende = timeToMinutes(nmPauseEnde);
 
-  const gesamt = ende - start;
-  console.log("NM:", gesamt);
+  const nmGesamt = ende - start;
 
-  return gesamt;
+  document.getElementById("nmErgebnis").textContent = nmGesamt;
 }
 
-
-vmPauseBerechnung.addEventListener("click", berechnungVmPause);
-mittagsPauseBerechnung.addEventListener("click", berechneMittagsPause);
-nmPauseBerechnung.addEventListener("click", berechneNmPause);
-
-// GesamtBerechnung
-arbeitstagBerechnung.addEventListener("click", function () {
-  const vm = berechnungVmPause();
-  const mittag = berechneMittagsPause();
-  const nm = berechneNmPause();
-
-  console.log("GESAMT:", vm + mittag + nm);
-});
-
-
-
-
-// ======================
-// Zeitrad
-// ======================
-// function createWheel(element, max) {
-//   for (let i = 0; i < max; i++) {
-//     let div = document.createElement("div");
-//     div.className = "item";
-//     div.textContent = i.toString().padStart(2, "0");
-//     element.appendChild(div);
-//   }
-// }
-
-// createWheel(document.getElementById("hours"), 24);
-// createWheel(document.getElementById("minutes"), 60);
+// Feierabend
+function berechnungFeierabend () {
+  const feierabend = ((vmErgebnis + mittagsErgebnis + nmErgebnis) - arbeitszeitGesamt);
+// Zeit wieder in Stunden und Minuten umrechnen
+  document.getElementById("feierabend").textContent = feierabend;
+}

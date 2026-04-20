@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.3;
   color: var(--text-primary);
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.00em;
 }
 
 h1 { font-size: var(--font-size-3xl); }
@@ -53,6 +53,9 @@ h4 { font-size: var(--font-size-lg); }
 
 p {
   color: var(--text-secondary);
+  height: 20px;
+  padding: 5px;
+  margin: 0px;
 }
 
 /* Hauptkarte */
@@ -74,18 +77,18 @@ p {
 }
 
 h2 {
-  margin-top: 0;
+  margin: 0;
 }
 
 h3 {
-  margin: 0 0 10px 0;
+  margin: 0 0 0px 0;
   font-size: 16px;
 }
 
 input {
   background: #626363;
   color: #0d0d11;
-  width: 100%;
+  width: 95%;
   margin-top: 5px;
   padding: 8px;
   border-radius: 10px;
@@ -94,6 +97,7 @@ input {
 
 .btn {
   background: var(--accent-gradient);
+  justify-content: right; 
 }
 
 .btn-small {

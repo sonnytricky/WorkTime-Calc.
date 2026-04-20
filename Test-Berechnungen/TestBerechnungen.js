@@ -98,3 +98,4 @@ function berechnungVmPause() {
 
 // createWheel(document.getElementById("hours"), 24);
 // createWheel(document.getElementById("minutes"), 60);
+

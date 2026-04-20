@@ -45,8 +45,11 @@
 !/Test-Berechnungen/**
 !/.gitattributes
 !/.gitignore
+!/.eslintrc.json
 !/index.html
 !/LICENSE
+!/package-lock.json
+!/package.json
 !/README.md
 !/style.css
 !/worktimecalc.js

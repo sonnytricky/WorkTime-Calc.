@@ -1,5 +1,3 @@
-# # WorkTime-Calc.
-
 [![Lint Status](https://github.com/sonnytricky/WorkTime-Calc./actions/workflows/lint.yml/badge.svg)](https://github.com/sonnytricky/WorkTime-Calc./actions/workflows/lint.yml)
 
 ---

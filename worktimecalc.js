@@ -133,3 +133,13 @@ function render() {
 // ======================
 document.querySelector("feierabendBtn").addEventListener("click", berechneFeierabend);
 
+// ======================
+// Für das Menü bzw. Views
+// ======================
+function toggleMenu() {
+  const btn = document.querySelector(".menu-btn");
+  const settings = document.getElementById("settingsView");
+
+  btn.classList.toggle("x");
+  settings.classList.toggle("active");
+}

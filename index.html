@@ -65,19 +65,56 @@
           <p>Pausen Dauer: <span id="nmErgebnis">0</span> min</p>
         </div>
 
-        <div>
-          <p>Feierabend: <span id="feierabendOutput">0</span> min</p>
-          <button class="btn" id="feierabendBtn">Berechnen</button>
+        <div class="row">
+          <p>Feierabend: <span id="feierabendOutput">0</span></p>
+          <button class="btn regenbogen" id="feierabendBtn">Berechnen</button>
         </div>
 
       </div>
 
+      
       <!-- 🟢 SETTINGS VIEW -->
       <div id="settingsView">
 
         <h2>⚙️ Einstellungen</h2>
 
-        <p>TESTTESTTESTTESTTESTTESTTESTTESTTESTTEST</p>
+        <div class="card">
+          <h3>SollArbeitszeit</h3>
+          <input type="time" id="sollZeitGesamt">
+          <h3>startArbeitstag</h3>
+          <input type="time" id="startArbeitstag">
+        </div>
+
+        <div class="card">
+          <h3>Berechnungen</h3>
+          <p>INFORMATION: Standartmäßig ist jede Pause auch Mittagspause in der Gesamtarbeitszeit inbegriffen, 
+            mit den checkboxen kann man die Pause die nicht in der Gesamtarbeitszeit includiert sein soll abwählen
+          </p>
+
+          <hr>
+
+          <div class="setting-row">
+            <span>Vm Pause</span>
+            <input type="checkbox" id="checkboxVmPause" checked>  <!-- ein ist checked -->
+          </div>
+
+          <div class="setting-row">
+            <span>MittagsPause</span>
+            <input type="checkbox" id="checkboxMittagsPause" checked>  <!-- ein ist checked -->
+          </div>
+
+          <div class="setting-row">
+            <span>Nm Pause</span>
+            <input type="checkbox" id="checkboxNmPause" checked>  <!-- ein ist checked -->
+          </div>
+
+          <hr>
+
+          <div class="box">A</div>
+
+          <button class="btn" id="reset">Einstellungen zurücksetzen</button>
+
+        </div>
 
       </div>
 

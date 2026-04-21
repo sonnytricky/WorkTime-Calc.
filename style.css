@@ -97,6 +97,7 @@ h3 {
 }
 
 p {
+
   color: var(--text-secondary);
   padding: 5px;
   margin: 0px;
@@ -114,13 +115,36 @@ input {
   border: 1px solid #ddd;
 }
 
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.setting-row span {
+  width: 200px;
+  color: var(--accent-secondary);
+}
+
 .btn {
+  justify-content: right;
   background: var(--accent-gradient);
-  justify-content: right; 
+  /* align-items: right;  */
 }
 
 .btn-small {
   background: var(--accent-glow);
+}
+
+.box {
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /***********************************************/
@@ -249,4 +273,3 @@ input {
   overflow-y: auto;   /* nur vertikal scrollen */
   overflow-x: hidden; /* verhindert seitliches Scrollen */
 }
-

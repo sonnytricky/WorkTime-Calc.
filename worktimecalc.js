@@ -5,7 +5,7 @@
 const sollZeitGesamt = document.getElementById("sollZeitGesamt");
 
 // Beginn Arbeitstag
-const startArbeitstag = "08:00";  // muss erst im html eingebaut werden
+const startArbeitstag = document.getElementById("startArbeitstag");
 
 // Pause am Vormittag
 const vmPauseStart = document.getElementById("vmPauseStart");
@@ -20,6 +20,10 @@ const nmPauseStart = document.getElementById("nmPauseStart");
 const nmPauseEnde = document.getElementById("nmPauseEnde");
 
 let arbeitstagEnde;
+
+// ======================
+// Regenbogen
+// ======================
 
 // ======================
 // Eventlistener

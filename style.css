@@ -2,10 +2,11 @@
   /* Background colors */
   --bg-primary: #0d0d11;
   --bg-secondary: #151519;
-  --bg-card: #1a1a1f;
+  --bg-card-primary: #1f1f25;
+  --bg-card-secondary: #0e0e11;
   --bg-card-hover: #222228;
   --bg-hover: #2a2a32;
-  --bg-input: #18181c;
+  --bg-input: #626363;
 
   /* Accent colors */
   --accent-primary: #6c35de;
@@ -24,6 +25,9 @@
   --warning: #f59e0b;
   --error: #ef4444;
   --info: #3b82f6;
+
+  /*button*/
+  --btn-primary: #f0f2f5;
 }
 
 body {
@@ -51,43 +55,58 @@ h2 { font-size: var(--font-size-2xl); }
 h3 { font-size: var(--font-size-xl); }
 h4 { font-size: var(--font-size-lg); }
 
-p {
-  color: var(--text-secondary);
-  height: 20px;
-  padding: 5px;
-  margin: 0px;
+* {
+  box-sizing: border-box;
 }
 
 /* Hauptkarte */
 .main-card {
-  background: #1f1f25;
+  position: relative;
+  background: var(--bg-card-primary);
   padding: 20px;
   border-radius: 20px;
+
   width: 320px;
+  height: 600px;
+
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  overflow: hidden; /* verhindert rauslaufen */
 }
 
 /* Kleine Karten */
 .card {
-  background: #0e0e11;
-  padding: 15px;
+  background: var(--bg-card-secondary);
+  padding: 10px;
   border-radius: 15px;
   margin-top: 15px;
   box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
 }
 
 h2 {
-  margin: 0;
-  text-align: right;
+  width: 200px;
+  padding-left: 5px;
+  margin: 2px;
+  text-align: left;
 }
 
 h3 {
-  margin: 0 0 0px 0;
+  width: 200px;
+  padding-left: 5px;
+  margin: 0;
   font-size: 16px;
 }
 
+p {
+
+  color: var(--text-secondary);
+  padding: 5px;
+  margin: 0px;
+
+  overflow-wrap: break-word;
+}
+
 input {
-  background: #626363;
+  background: var(--bg-input);
   color: #0d0d11;
   width: 95%;
   margin-top: 5px;
@@ -96,41 +115,161 @@ input {
   border: 1px solid #ddd;
 }
 
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.setting-row span {
+  width: 200px;
+  color: var(--accent-secondary);
+}
+
 .btn {
+  justify-content: right;
   background: var(--accent-gradient);
-  justify-content: right; 
+  /* align-items: right;  */
 }
 
 .btn-small {
   background: var(--accent-glow);
 }
 
+.box {
+  gap: 10px;
+}
 
-
-
-
-
-
-
-
-/* Zeitrad*/
-.picker {
+.row {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.wheel {
-  height: 150px;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  width: 80px;
-  text-align: center;
+/***********************************************/
+/* MENÜ-Button */
+.menu-btn {
+  position: absolute;
+
+  top: 15px;
+  right: 30px;
+
+  width: 34px;
+  height: 34px;
+
+  gap: 6px;
+
+  background: none;   /* kein Hintergrund */
+  border: none;       /* kein Rahmen */
+  padding: 0px;         /* kein Innenabstand */
+  /*outline: none;      /* kein Fokus-Rahmen */
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  overflow: visible; /* oder einfach ganz löschen */
+  cursor: pointer;
+  z-index: 1000;
+} 
+
+.menu-btn span {
+  position: absolute;
+
+  /* left: 50%; */
+  height: 3px;  /* Breite des X*/
+  width: 24px;
+
+  background: var(--btn-primary);
+  border-radius: 2px;
+
+  transform: translateX(-50%);
+  transition: 0.3s;
 }
 
-.item {
-  padding: 10px;
-  font-size: 20px;
-  scroll-snap-align: center;
+/* Linien sauber platzieren */
+.menu-btn span:nth-child(1) {
+  top: 6px;
+  right: 0px;
+}
+
+.menu-btn span:nth-child(2) {
+  top: 14px;
+  right: 0px;
+}
+
+.menu-btn span:nth-child(3) {
+  top: 22px;
+  right: 0px;
+}
+
+/* ✖ Animation */
+.menu-btn.open span:nth-child(1) {
+  top: 14px;
+  transform: rotate(45deg);
+}
+
+.menu-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.open span:nth-child(3) {
+  top: 14px;
+  transform: otate(-45deg);
+}
+
+/*x-button*/
+.menu-btn.x span:nth-child(1) {
+  right: 0px;
+  transform: rotate(45deg) translate(4px, 4px);
+
+}
+
+.menu-btn.x span:nth-child(2) {
+  opacity: 0; 
+}
+
+.menu-btn.x span:nth-child(3) {
+  right: 0px;
+  transform: rotate(-45deg) translate(4px, -4px); 
+}
+
+/* ======================
+/ VIEW
+/ ====================== */
+
+/* MAIN VIEW */
+#mainView {
+  width: 100%;
+  height: 100%;
+}
+
+/* SETTINGS VIEW (Overlay) */
+#settingsView {
+  position: absolute;
+  top: 0;
+  left: 100%;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 20px;
+  background: var(--bg-card-primary);
+  transition: 0.3s;
+  z-index: 999;
+}
+
+/* aktiv → rein sliden */
+#settingsView.active {
+  left: 0;
+}
+
+#settingsView {
+  width: 100%;
+  height: 100%;
+
+  overflow-y: auto;   /* nur vertikal scrollen */
+  overflow-x: hidden; /* verhindert seitliches Scrollen */
 }

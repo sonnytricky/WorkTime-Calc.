@@ -22,10 +22,6 @@ const nmPauseEnde = document.getElementById("nmPauseEnde");
 let arbeitstagEnde;
 
 // ======================
-// Regenbogen
-// ======================
-
-// ======================
 // Eventlistener
 // ======================
 vmPauseStart.addEventListener("input", berechnungVmPause);
@@ -146,4 +142,42 @@ function toggleMenu() {
 
   btn.classList.toggle("x");
   settings.classList.toggle("active");
+}
+
+// ======================
+// Speicher - localStorage
+// ======================
+function saveData() {
+  const data = {
+    startArbeitstag: startArbeitstag.value,
+    vmPauseStart: vmPauseStart.value,
+    vmPauseEnde: vmPauseEnde.value,
+    mittagsPauseStart: mittagsPauseStart.value,
+    mittagsPauseEnde: mittagsPauseEnde.value,
+    nmPauseStart: nmPauseStart.value,
+    nmPauseEnde: nmPauseEnde.value
+  };
+
+  localStorage.setItem("arbeitszeitData", JSON.stringify(data));
+}
+
+// Dateien wieder laden
+function loadData() {
+  const saved = localStorage.getItem("arbeitszeitData");
+  if (!saved) return;
+
+  const data = JSON.parse(saved);
+
+  startArbeitstag.value = data.startArbeitstag || "";
+  vmPauseStart.value = data.vmPauseStart || "";
+  vmPauseEnde.value = data.vmPauseEnde || "";
+  mittagsPauseStart.value = data.mittagsPauseStart || "";
+  mittagsPauseEnde.value = data.mittagsPauseEnde || "";
+  nmPauseStart.value = data.nmPauseStart || "";
+  nmPauseEnde.value = data.nmPauseEnde || "";
+
+  // neu berechnen nach Laden
+  berechnungVmPause();
+  berechnungMittagsPause();
+  berechnungNmPause();
 }

@@ -24,6 +24,7 @@
 !*/.docs/
 !*/.github/ISSUE_TEMPLATE/
 !*/.github/workflows/
+!*/.vscode/
 !*/assets/images/
 !*/Test-Berechnungen/
 
@@ -43,10 +44,12 @@
 !/.github/ISSUE_TEMPLATE/task.md
 !/.github/workflows/lint.yml
 !/.github/PULL_REQUEST_TEMPLATE.md
+!/.vscode/settings.json
 !/assets/images/logo.png
 !/Test-Berechnungen/**
 !/.gitattributes
 !/.gitignore
+!/.prettierrc
 !/eslint.config.js
 !/index.html
 !/LICENSE

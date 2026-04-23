@@ -5,31 +5,52 @@ export default [
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
+
       globals: {
-        document: "readonly",
+        // 🌐 Browser Basics
         window: "readonly",
-        console: "readonly"
+        document: "readonly",
+        console: "readonly",
+
+        // 🔥 WICHTIG für dich
+        localStorage: "readonly",
+        sessionStorage: "readonly",
+        location: "readonly",
+
+        // 🧠 oft gebraucht
+        setTimeout: "readonly",
+        clearTimeout: "readonly",
+        setInterval: "readonly",
+        clearInterval: "readonly",
+
+        // optional
+        alert: "readonly"
       }
     },
 
+    extends: ["prettier"],
+
     rules: {
-      // 🔥 wichtig für dich
+      // ❌ Fehler
       "no-undef": "error",
 
-      // ⚠️ weniger nervig
-      "no-unused-vars": "warn",
+      // ⚠️ Warnungen
+      "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
 
-      // 🎯 dein Stil: 2 spaces (WICHTIG angepasst)
+      // 🎯 Style
       indent: ["error", 2],
-
       quotes: ["error", "double"],
       semi: ["error", "always"],
 
-      // 🔥 NICHT mehr blocken
+      // 🔧 entspannter
       "eol-last": "off",
+      "no-console": "off",
 
-      // console erlauben
-      "no-console": "off"
+      // 💡 optional nice
+      "eqeqeq": "error",              // === statt ==
+      "curly": "error",               // immer {} bei if
+      "no-var": "error",              // kein var
+      "prefer-const": "warn"          // const wenn möglich
     }
   }
 ];

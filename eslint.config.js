@@ -4,7 +4,7 @@ export default [
   prettier,
 
   {
-    files: ["**/*.js"],
+    files: ["**/*.js", "!Test-Berechnungen/**"], // "!Test-Berechnungen/**" und alle Dateien darin ignorieren
 
     languageOptions: {
       ecmaVersion: "latest",

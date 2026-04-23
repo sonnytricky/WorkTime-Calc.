@@ -2,18 +2,18 @@ const startArbeitstag = "08:00";  // Beginn Arbeitstag
 const vmErgebnis = 15;            // Pause
 const mittagsErgebnis = 60;       // Pause
 const nmErgebnis = 15;            // Pause
-let arbeitszeitGesamt = "08:30";  // Sollzeit
+const arbeitszeitGesamt = "08:30";  // Sollzeit
 
 function timeToMinutes(input) {
   const value = typeof input === "string" ? input : input.value;
 
   // wenn leer → 0 Minuten
-  if (!value) return 0;
+  if (!value) {return 0;}
 
   const [h, m] = value.split(":").map(Number);
 
   // Sicherheit falls irgendwas schief ist
-  if (isNaN(h) || isNaN(m)) return 0;
+  if (isNaN(h) || isNaN(m)) {return 0;}
 
   return h * 60 + m;
 }

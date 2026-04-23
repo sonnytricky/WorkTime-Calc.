@@ -1,4 +1,8 @@
+import prettier from "eslint-config-prettier";
+
 export default [
+  prettier,
+
   {
     files: ["**/*.js"],
 
@@ -27,8 +31,6 @@ export default [
         alert: "readonly"
       }
     },
-
-    extends: ["prettier"],
 
     rules: {
       // ❌ Fehler

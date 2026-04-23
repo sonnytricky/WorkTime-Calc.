@@ -19,8 +19,6 @@ const mittagsPauseEnde = document.getElementById("mittagsPauseEnde");
 const nmPauseStart = document.getElementById("nmPauseStart");
 const nmPauseEnde = document.getElementById("nmPauseEnde");
 
-let arbeitstagEnde;
-
 // ======================
 // Eventlistener
 // ======================
@@ -30,6 +28,19 @@ mittagsPauseStart.addEventListener("input", berechnungMittagsPause);
 mittagsPauseEnde.addEventListener("input", berechnungMittagsPause);
 nmPauseStart.addEventListener("input", berechnungNmPause);
 nmPauseEnde.addEventListener("input", berechnungNmPause);
+
+document.getElementById("reset").addEventListener("click", clearData);
+
+// saveData
+[
+  sollZeitGesamt,
+  startArbeitstag,
+  vmPauseStart, vmPauseEnde,
+  mittagsPauseStart, mittagsPauseEnde,
+  nmPauseStart, nmPauseEnde
+].forEach(el => {
+  el.addEventListener("input", saveData);
+});
 
 // ======================
 // Hilfsfunktionen
@@ -58,6 +69,12 @@ const state = {
   mittag: 0,
   nm: 0
 };
+
+// checkboxen
+[startArbeitstag, sollZeitGesamt].forEach(el => {
+  el.addEventListener("input", berechneFeierabend);
+});
+
 
 // VM Pause
 function berechnungVmPause() {
@@ -103,16 +120,30 @@ function berechnungNmPause() {
 }
 
 function berechneFeierabend() {
-  const start = timeToMinutes(startArbeitstag);
-  const arbeitszeit = timeToMinutes("08:30");
+  if (!startArbeitstag.value) {
+    document.getElementById("feierabendOutput").textContent = "--:--";
+    return;
+  }
 
-  const gesamt = arbeitszeit + state.vm + state.mittag + state.nm;
+  const start = timeToMinutes(startArbeitstag);
+  const arbeitszeit = timeToMinutes(sollZeitGesamt.value || "08:30");
+
+  const vmAktiv = document.getElementById("checkboxVmPause").checked;
+  const mittagAktiv = document.getElementById("checkboxMittagsPause").checked;
+  const nmAktiv = document.getElementById("checkboxNmPause").checked;
+
+  const gesamt =
+    arbeitszeit +
+    (vmAktiv ? state.vm : 0) +
+    (mittagAktiv ? state.mittag : 0) +
+    (nmAktiv ? state.nm : 0);
+
   const endeMin = start + gesamt;
 
   const h = Math.floor(endeMin / 60);
   const m = endeMin % 60;
 
-  document.getElementById("feierabend").textContent =
+  document.getElementById("feierabendOutput").textContent =
     h.toString().padStart(2, "0") + ":" +
     m.toString().padStart(2, "0");
 }
@@ -131,7 +162,7 @@ function render() {
 // ======================
 // Button
 // ======================
-document.querySelector("feierabendBtn").addEventListener("click", berechneFeierabend);
+document.querySelector("#feierabendBtn").addEventListener("click", berechneFeierabend);
 
 // ======================
 // Für das Menü bzw. Views
@@ -149,6 +180,7 @@ function toggleMenu() {
 // ======================
 function saveData() {
   const data = {
+    sollZeitGesamt: sollZeitGesamt.value,
     startArbeitstag: startArbeitstag.value,
     vmPauseStart: vmPauseStart.value,
     vmPauseEnde: vmPauseEnde.value,
@@ -168,6 +200,7 @@ function loadData() {
 
   const data = JSON.parse(saved);
 
+  sollZeitGesamt.value = data.sollZeitGesamt || "";
   startArbeitstag.value = data.startArbeitstag || "";
   vmPauseStart.value = data.vmPauseStart || "";
   vmPauseEnde.value = data.vmPauseEnde || "";
@@ -181,3 +214,12 @@ function loadData() {
   berechnungMittagsPause();
   berechnungNmPause();
 }
+
+// Reset Button
+function clearData() {
+  localStorage.removeItem("arbeitszeitData");
+  location.reload();
+}
+
+loadData();
+berechneFeierabend();

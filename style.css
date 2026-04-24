@@ -90,7 +90,7 @@ h4 {
   max-width: 400px;
   margin: 0 auto;
 
-  padding: 30px;
+  padding: 30px;  /* war auf 30 */
   border-radius: 20px;
 
   min-height: 70vh;
@@ -108,6 +108,7 @@ h4 {
   background: var(--bg-card-secondary);
   padding: 10px;
   border-radius: 15px;
+  /* margin: 10px; */
   margin-top: 15px;
   width: 100%;
 }
@@ -115,7 +116,7 @@ h4 {
 h2 {
   width: auto;
   max-width: 100%;
-  padding-left: 5px;
+  padding-left: 18px;
   margin: 2px;
   text-align: left;
 }
@@ -125,7 +126,7 @@ h3 {
   max-width: 100%;
   padding-left: 5px;
   margin: 0;
-  margin-left: 10px;
+  margin-left: 7px;
   font-size: 16px;
 }
 
@@ -143,9 +144,11 @@ input {
   background: var(--bg-input);
   color: #0d0d11;
   width: 95%; 
-  max-width: 90%;
-  margin-top: 5px;
-  margin-left: 10px;
+  max-width: 100%;
+  margin: 5px auto 0 auto;
+  /* margin-top: 5px; */
+  /* margin-left: 10px; */
+  display: block;
   padding: 8px;
   border-radius: 10px;
   border: 1px solid #ddd;
@@ -156,7 +159,8 @@ input {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  width: 100%;
+  width: 90%;
+  margin-left: 18px;
 }
 
 .setting-row span {
@@ -166,7 +170,7 @@ input {
 }
 
 .setting-row input {
-  flex: 2;
+  flex: 1;
 }
 
 .btn {
@@ -176,6 +180,7 @@ input {
   color: var(--btn-primary);
   border-radius: 10px;
   padding: 10px 15px;
+  margin-left: 10px;
   font-size: 15px;
   cursor: pointer;
 }
@@ -198,6 +203,19 @@ input {
   align-items: center;
 }
 
+#SollArbeitszeit {
+  padding-top: 5px;
+}
+
+#startArbeitstag {
+  padding-top: 10px;
+}
+
+#feierabend {
+  /* padding-left: 10px; */
+  margin-top: 5px;
+}
+
 #feierabendOutput {
   font-weight: 700;
   /* font-weight: bold; */
@@ -208,8 +226,8 @@ input {
 .menu-btn {
   position: absolute;
 
-  top: 0px;
-  right: 10px;
+  top: 20px;
+  right: 30px;
 
   width: 34px;
   height: 34px;
@@ -239,7 +257,8 @@ input {
   height: 3px; /* Breite des X*/
   width: 24px;
 
-  background: var(--btn-primary);
+  background: white;
+  color: white;
   border-radius: 2px;
 
   transform: translateX(-50%);
@@ -289,7 +308,8 @@ input {
 
   transition: opacity 0.3s ease;
 
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 #mainView.hidden {
@@ -306,7 +326,7 @@ input {
   width: 100%;
   height: 100%;
 
-  padding: 20px;
+  padding: 30px;
   background: var(--bg-card-primary);
 
   overflow-y: auto;
@@ -323,6 +343,9 @@ input {
 @media (max-width: 1024px) {
   .main-card {
     width: 95%;
+  }
+  .setting-row {
+    margin-left: 18px;
   }
 }
 
@@ -346,11 +369,12 @@ input {
   .setting-row {
     flex-direction: column;
     align-items: stretch;
+    margin-left: 18px;
   }
 
   .menu-btn {
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 20px;
   }
 }
 
@@ -363,9 +387,13 @@ input {
   p {
     font-size: 14px;
   }
-
-  .main-card {
-    padding: 12px;
+  #mainView,
+  #settingsView {
+    padding: 20px;
   }
+
+  /* .main-card {
+    padding: 20px;
+  } */
 }
 

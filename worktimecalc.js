@@ -167,14 +167,14 @@ document.querySelector("#feierabendBtn").addEventListener("click", berechneFeier
 // ======================
 // Für das Menü bzw. Views
 // ======================
-// eslint-disable-next-line no-unused-vars
-function toggleMenu() {
-  const btn = document.querySelector(".menu-btn");
-  const settings = document.getElementById("settingsView");
 
-  btn.classList.toggle("x");
-  settings.classList.toggle("active");
-}
+const menuBtn = document.querySelector(".menu-btn");
+const settingsView = document.getElementById("settingsView");
+
+menuBtn.addEventListener("click", () => {
+  const isOpen = settingsView.classList.toggle("active");
+  menuBtn.classList.toggle("open", isOpen);
+});
 
 // ======================
 // Speicher - localStorage

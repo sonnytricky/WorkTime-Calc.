@@ -25,17 +25,17 @@
   <div class="app">
     <div class="main-card">
 
-
-
-      <!-- 🔵 MAIN VIEW -->
-      <div id="mainView">
-
         <!-- ☰ Menü -->
-        <button class="menu-btn" onclick="toggleMenu()">
+        <button class="menu-btn">
           <span></span>
           <span></span>
           <span></span>
         </button>
+
+      <!-- 🔵 MAIN VIEW -->
+      <div id="mainView">
+
+
 
         <!-- <div id="sideMenu" class="side-menu">
           <a href="#" onclick="showSettings()">⚙️ Einstellungen</a>
@@ -65,9 +65,8 @@
           <p>Pausen Dauer: <span id="nmErgebnis">0</span> min</p>
         </div>
 
-        <div class="row">
-          <p>Feierabend: <span id="feierabendOutput">0</span></p>
-          <button class="btn regenbogen" id="feierabendBtn">Neu Berechnen</button>
+        <div class="card">
+          <h3 id="feierabend">Feierabend: <span id="feierabendOutput">0</span> Uhr</h3>
         </div>
 
       </div>
@@ -79,10 +78,12 @@
         <h2>⚙️ Einstellungen</h2>
 
         <div class="card">
-          <h3>SollArbeitszeit</h3>
+          <h3 id="SollArbeitszeit">SollArbeitszeit</h3>
           <input type="time" id="sollZeitGesamt">
-          <h3>startArbeitstag</h3>
+          <h3 id="startArbeitstag">startArbeitstag</h3>
           <input type="time" id="startArbeitstag">
+          <div class="box">A</div>
+          <button class="btn" id="reset">reset</button>
         </div>
 
         <div class="card">
@@ -92,6 +93,8 @@
           </p>
 
           <hr>
+
+          
 
           <div class="setting-row">
             <span>Vm Pause</span>
@@ -112,7 +115,7 @@
 
           <div class="box">A</div>
 
-          <button class="btn" id="reset">Einstellungen zurücksetzen</button>
+          <button class="btn " id="feierabendBtn">Neu Berechnen</button>
 
         </div>
 

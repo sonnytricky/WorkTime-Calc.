@@ -1,0 +1,62 @@
+##############################################
+# Alles ignorieren                               # * bedeutet alles
+##############################################
+*
+
+##############################################
+# Verzeichnisse wieder erlauben
+##############################################
+!*/
+
+##############################################
+# Ordner ignorieren
+##############################################
+# /.Releases/
+# *.Releases/
+# !*/.Releases/
+# /.aLT/
+# *.aLT/
+# !*/.aLT/
+
+##############################################
+# Verzeichnisse wieder erlauben                  # !*/Unterordner/
+##############################################
+!*/.docs/
+!*/.github/ISSUE_TEMPLATE/
+!*/.github/workflows/
+!*/.vscode/
+!*/assets/images/
+!*/Test-Berechnungen/
+
+##############################################
+# Ausnahme: diese Dateien NICHT ignorieren
+##############################################
+# Beispiel:
+# - für Dateien in Unterordnern                  # !/Pfad/zur/Datein.txt
+# - für einzelne Dateien                         # !Datein.txt
+##############################################
+!/.docs/Design-ideen.md
+!/.docs/Logik.md
+!/.docs/speicher.md
+!/.github/ISSUE_TEMPLATE/bug_report.md
+!/.github/ISSUE_TEMPLATE/feature_request.md
+!/.github/ISSUE_TEMPLATE/idea.md
+!/.github/ISSUE_TEMPLATE/task.md
+!/.github/workflows/lint.yml
+!/.github/workflows/publish.yml
+!/.github/PULL_REQUEST_TEMPLATE.md
+!/.vscode/settings.json
+!/assets/images/logo.png
+!/Test-Berechnungen/**
+!/.gitattributes
+!/.gitignore
+!/.prettierrc
+!/eslint.config.js
+!/index.html
+!/LICENSE
+!/package-lock.json
+!/package.json
+!/README.md
+!/style.css
+!/worktimecalc.js
+

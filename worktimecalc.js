@@ -162,7 +162,9 @@ function render() {
 // ======================
 // Button
 // ======================
-document.querySelector("#feierabendBtn").addEventListener("click", berechneFeierabend);
+document.getElementById("feierabendBtn")
+  .addEventListener("click", berechneFeierabend);
+// document.querySelector("#feierabendBtn").addEventListener("click", berechneFeierabend);
 
 // ======================
 // Für das Menü bzw. Views

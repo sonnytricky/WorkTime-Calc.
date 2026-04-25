@@ -43,6 +43,7 @@
 !/.github/ISSUE_TEMPLATE/idea.md
 !/.github/ISSUE_TEMPLATE/task.md
 !/.github/workflows/lint.yml
+!/.github/workflows/publish.yml
 !/.github/PULL_REQUEST_TEMPLATE.md
 !/.vscode/settings.json
 !/assets/images/logo.png

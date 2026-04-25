@@ -144,18 +144,41 @@ p {
   overflow-wrap: break-word;
 }
 
-input {
+input[type="time"],
+input[type="text"],
+input[type="number"] {
   background: var(--bg-input);
-  color: #0d0d11;
-  width: 95%; 
+  color: var(--text-primary);
+
+  width: 95%;
   max-width: 100%;
-  margin: 5px auto 0 auto;
-  /* margin-top: 5px; */
-  /* margin-left: 10px; */
+
   display: block;
-  padding: 8px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
+  margin: 8px auto 0 auto;
+
+  padding: 12px 14px;
+  min-height: 48px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+
+  text-align: center;
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  accent-color: #6c35de;
+  appearance: auto;
+  -webkit-appearance: checkbox;
 }
 
 .setting-row {
@@ -392,6 +415,25 @@ input {
   #mainView,
   #settingsView {
     padding: 20px;
+  }
+
+  input[type="time"],
+  input[type="text"],
+  input[type="number"] { 
+  font-size: 18px;
+  min-height: 52px;
+  padding: 14px;
+  }
+
+  .setting-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .checkbox-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 

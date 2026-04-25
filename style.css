@@ -79,7 +79,9 @@ h4 {
   font-size: var(--font-size-lg);
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -88,11 +90,11 @@ h4 {
   position: relative;
   background: var(--bg-card-primary);
 
-  width: 95vw;
+  width: 70vw;
   max-width: 400px;
   margin: 0 auto;
 
-  padding: 30px;  /* war auf 30 */
+  /* padding: 30px; */
   border-radius: 20px;
 
   min-height: 70vh;
@@ -301,6 +303,7 @@ input {
 #mainView {
   width: 100%;
   height: 100%;
+  padding: 30px;
 
   position: relative;
   inset: 0;
@@ -342,7 +345,7 @@ input {
 
 @media (max-width: 1024px) {
   .main-card {
-    width: 95%;
+    width: 100%;
   }
   .setting-row {
     margin-left: 18px;
@@ -357,8 +360,7 @@ input {
   }
 
   .main-card {
-    width: 100%;
-    width: 100%;
+    /* width: 100%; */
     max-width: 100%;
     min-height: 100dvh;
     max-height: 100dvh;
@@ -391,9 +393,5 @@ input {
   #settingsView {
     padding: 20px;
   }
-
-  /* .main-card {
-    padding: 20px;
-  } */
 }
 

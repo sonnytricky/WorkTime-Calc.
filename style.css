@@ -1,18 +1,19 @@
 :root {
   /* Background colors */
-  --bg-primary: #0d0d11;
+  --bg-desktop: #626363;
+
+  --bg-primary: #0D0D0D;
   --bg-secondary: #151519;
   --bg-card-primary: #1f1f25;
   --bg-card-secondary: #0e0e11;
   --bg-card-hover: #222228;
   --bg-hover: #2a2a32;
   --bg-input: #626363;
+  --input-border: #ffffff14;
 
   /* Accent colors */
-  --accent-primary: #6c35de;
+  --accent-primary: #ff1493;
   --accent-secondary: #ff6b35;
-  --accent-gradient: linear-gradient(135deg, #6c35de 0%, #ff6b35 100%);
-  --accent-glow: rgba(108, 53, 222, 0.3);
 
   /* Text colors */
   --text-primary: #f0f2f5;
@@ -26,14 +27,19 @@
   --error: #ef4444;
   --info: #3b82f6;
 
-  /*button*/
+  /* button */
   --btn-primary: #f0f2f5;
+  --btn-bg: #673AB7;
+  --btn-hover: #FF5722;
+
+  /* Checkboxen */
+   --checkbox-primary: #673AB7; /*#00FF85; */
 }
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #625f5f;
+  background: var(--bg-desktop);
 
   /* display: flex;
   justify-content: center;
@@ -117,6 +123,14 @@ h4 {
   width: 100%;
 }
 
+h1 {
+  width: auto;
+  max-width: 100%;
+  padding-left: 18px;
+  margin: 2px;
+  text-align: left;
+}
+
 h2 {
   width: auto;
   max-width: 100%;
@@ -141,6 +155,9 @@ p {
 
   margin-left: 10px;
 
+  /* text-transform: uppercase;
+  letter-spacing: 0em; */
+
   overflow-wrap: break-word;
 }
 
@@ -156,11 +173,11 @@ input[type="number"] {
   display: block;
   margin: 8px auto 0 auto;
 
-  padding: 12px 14px;
-  min-height: 48px;
+  padding: 5px 14px;
+  min-height: 20px;
 
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid var(--input-border);
 
   font-size: 16px;
   font-weight: 500;
@@ -176,7 +193,8 @@ input[type="checkbox"] {
   width: 22px;
   height: 22px;
   margin: 0;
-  accent-color: #6c35de;
+  /* padding: 5px; */
+  accent-color: var(--checkbox-primary);
   appearance: auto;
   -webkit-appearance: checkbox;
 }
@@ -186,6 +204,7 @@ input[type="checkbox"] {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+  padding: 2px;
   width: 90%;
   margin-left: 18px;
 }
@@ -193,7 +212,7 @@ input[type="checkbox"] {
 .setting-row span {
   flex: 1;
   min-width: 120px;
-  color: var(--accent-secondary);
+  color: var(--text-secondary);
 }
 
 .setting-row input {
@@ -201,27 +220,23 @@ input[type="checkbox"] {
 }
 
 .btn {
+  min-height: 20px;
   justify-content: right;
-  background: var(--accent-gradient);
-  /* align-items: right;  */
+  background: var(--btn-bg);
   color: var(--btn-primary);
   border-radius: 10px;
-  padding: 10px 15px;
+  padding: 5px 14px;
   margin-left: 10px;
-  font-size: 15px;
+  font-size: 16px;
   cursor: pointer;
 }
 
 .btn:hover {
-  background: var(--accent-glow);
-}
-
-.btn-small {
-  background: var(--accent-glow);
+  background: var(--btn-hover);
 }
 
 .box {
-  gap: 10px;
+  gap: 5px;
 }
 
 .row {
@@ -230,23 +245,6 @@ input[type="checkbox"] {
   align-items: center;
 }
 
-/* #SollArbeitszeit {
-  padding-top: 5px;
-}
-
-#startArbeitstag {
-  padding-top: 10px;
-}
-
-#feierabend {
-  margin-top: 5px;
-}
-
-#feierabendOutput {
-  font-weight: 700;
-} */
-
-/***********************************************/
 /* MENÜ-Button */
 .menu-btn {
   position: absolute;
@@ -282,8 +280,8 @@ input[type="checkbox"] {
   height: 3px; /* Breite des X*/
   width: 24px;
 
-  background: white;
-  color: white;
+  background: var(--text-primary);
+  color: var(--text-primary);
   border-radius: 2px;
 
   transform: translateX(-50%);
@@ -404,9 +402,12 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+  }
   h2,
   h3 {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   p {
@@ -420,9 +421,9 @@ input[type="checkbox"] {
   input[type="time"],
   input[type="text"],
   input[type="number"] { 
-  font-size: 18px;
-  min-height: 52px;
-  padding: 14px;
+  font-size: 16px;
+  min-height: 20px;
+  padding: 5px, 14px;
   }
 
   .setting-row {
@@ -434,6 +435,7 @@ input[type="checkbox"] {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 2px;
   }
 }
 

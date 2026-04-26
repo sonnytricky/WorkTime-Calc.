@@ -25,6 +25,7 @@
 !*/.github/ISSUE_TEMPLATE/
 !*/.github/workflows/
 !*/.vscode/
+!*/assets/favicon/
 !*/assets/images/
 !*/Test-Berechnungen/
 
@@ -46,6 +47,9 @@
 !/.github/workflows/publish.yml
 !/.github/PULL_REQUEST_TEMPLATE.md
 !/.vscode/settings.json
+!/assets/favicon/favicon.png
+!/assets/favicon/favicon-32x32.png
+!/assets/favicon/apple-touch-icon.png
 !/assets/images/logo.png
 !/Test-Berechnungen/**
 !/.gitattributes

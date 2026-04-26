@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>WorkTime-Calc.</title>
+
+  <!-- favicon -->
+  <link rel="icon" href="assets/favicon/favicon.png" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+
+  <!-- Wichtig für iPhone -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div class="app">
+    <div class="main-card">
+
+        <!-- ☰ Menü -->
+        <button class="menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      <!-- 🔵 MAIN VIEW -->
+      <div id="mainView">
+        
+        <h1>WorkTime-Calc.</h1>
+
+        <div class="card">
+          <h3>Vormittagspause</h3>
+          <input type="time" id="vmPauseStart">
+          <input type="time" id="vmPauseEnde">
+          <p>Dauer: <span id="vmErgebnis">0</span> min</p>
+        </div>
+
+        <div class="card">
+          <h3>Mittagspause</h3>
+          <input type="time" id="mittagsPauseStart">
+          <input type="time" id="mittagsPauseEnde">
+          <p>Dauer: <span id="mittagsErgebnis">0</span> min</p>
+        </div>
+
+        <div class="card">
+          <h3>Nachmittagspause</h3>
+          <input type="time" id="nmPauseStart">
+          <input type="time" id="nmPauseEnde">
+          <p>Dauer: <span id="nmErgebnis">0</span> min</p>
+        </div>
+
+        <div class="card">
+          <h3 id="feierabend">Feierabend: <span id="feierabendOutput">0</span> Uhr</h3>
+        </div>
+
+      </div>
+
+      
+      <!-- 🟢 SETTINGS VIEW -->
+      <div id="settingsView">
+
+        <h2>⚙️ Einstellungen</h2>
+
+        <div class="card">
+          <h3>SollArbeitszeit</h3>
+          <input type="time" id="sollZeitGesamt">
+          <div class="box"></div>
+          <h3>startArbeitstag</h3>
+          <input type="time" id="startArbeitstag">
+          <div class="box"></div>
+          <button class="btn" id="reset">reset</button>
+        </div>
+
+        <div class="card">
+          <h3>Berechnungen</h3>
+          <p>Standartmäßig ist jede Pause außer die Mittagspause in der Gesamtarbeitszeit includiert, 
+            mit den checkboxen kann man die Pausen die nicht in der Gesamtarbeitszeit includiert werden soll abwählen
+          </p>
+
+          <hr>
+
+          
+
+          <div class="setting-row checkbox-row">
+            <span>Vm Pause</span>
+            <input type="checkbox" id="checkboxVmPause" checked>  <!-- ein ist checked -->
+          </div>
+
+          <div class="setting-row checkbox-row">
+            <span>MittagsPause</span>
+            <input type="checkbox" id="checkboxMittagsPause">
+          </div>
+
+          <div class="setting-row checkbox-row">
+            <span>Nm Pause</span>
+            <input type="checkbox" id="checkboxNmPause" checked>  <!-- ein ist checked -->
+          </div>
+
+          <hr>
+
+          <!-- <div class="box">A</div> -->
+
+          <button class="btn" id="feierabendBtn">Neu Berechnen</button>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="worktimecalc.js"></script>
+</body>
+</html>
+

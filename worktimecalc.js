@@ -226,4 +226,3 @@ function clearData() {
 
 loadData();
 berechneFeierabend();
-

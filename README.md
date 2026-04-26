@@ -1,5 +1,5 @@
 [![Lint Status](https://github.com/sonnytricky/WorkTime-Calc./actions/workflows/lint.yml/badge.svg)](https://github.com/sonnytricky/WorkTime-Calc./actions/workflows/lint.yml)
-
+[![Pages](https://github.com/sonnytricky/WorkTime-Calc./actions/workflows/publish.yml/badge.svg)](https://github.com/sonnytricky/WorkTime-Calc./blob/main/.github/workflows/publish.yml)
 ---
 
 # ⏱️ WorkTime-Calc
@@ -14,7 +14,7 @@ Das Tool läuft komplett im Browser und kann direkt über **GitHub Pages** genut
 ## 🌐 Live Demo
 
 ```
-https://DEIN-USERNAME.github.io/REPOSITORY-NAME/
+https://sonnytricky.github.io/WorkTime-Calc./
 ```
 
 ---

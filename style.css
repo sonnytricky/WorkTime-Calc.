@@ -117,9 +117,10 @@ h4 {
 .card {
   background: var(--bg-card-secondary);
   padding: 10px;
+  padding-bottom: 10px;
   border-radius: 15px;
   /* margin: 10px; */
-  margin-top: 15px;
+  margin-top: 20px; /* war auf 15 */
   width: 100%;
 }
 
@@ -225,6 +226,7 @@ input[type="checkbox"] {
   background: var(--btn-bg);
   color: var(--btn-primary);
   border-radius: 10px;
+  border: none;
   padding: 5px 14px;
   margin-left: 10px;
   font-size: 16px;
@@ -236,7 +238,7 @@ input[type="checkbox"] {
 }
 
 .box {
-  gap: 5px;
+  height: 10px;
 }
 
 .row {
@@ -426,6 +428,9 @@ input[type="checkbox"] {
   padding: 5px, 14px;
   }
 
+  .card {
+    margin: 10px;
+  }
   .setting-row {
     flex-direction: column;
     align-items: stretch;

@@ -45,6 +45,7 @@
 !/.github/ISSUE_TEMPLATE/task.md
 !/.github/workflows/lint.yml
 !/.github/workflows/publish.yml
+!/.github/workflows/release.yml
 !/.github/PULL_REQUEST_TEMPLATE.md
 !/.vscode/settings.json
 !/assets/favicon/favicon.png

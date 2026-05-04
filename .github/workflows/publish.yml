@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - index.html
-      - script.js
+      - worktimecalc.js
       - style.css
 
 permissions:
